@@ -1,0 +1,18 @@
+
+
+<h3>Here are your letters:</h3>
+
+<% @letters.each do |letter| %><span class="badge bg-secondary"
+    <h1> <%= letter.capitalize %> </h1></span>
+<% end %>
+
+<br><br>
+
+What is the longest word you can find?<br>
+
+<form action="/score" data-turbo="false">
+  <input type="text" name="word">
+  <input type="submit" value="Play">
+  <%= hidden_field_tag :letters, @letters %>
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  </form>
